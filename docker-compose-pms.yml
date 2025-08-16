@@ -1,0 +1,61 @@
+version: '3.8'
+
+services:
+  patient-service:
+    image: patient-service:1.0.0
+    container_name: patient-service
+    restart: always
+    ports:
+      - "4001:4001"
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    networks:
+      - internal
+
+  billing-service:
+    image: billing-service:1.0.0
+    container_name: billing-service
+    restart: always
+    ports:
+      - "4002:4002"
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    networks:
+      - internal
+
+  notification-service:
+    image: notification-service:1.0.0
+    container_name: notification-service
+    restart: always
+    ports:
+      - "4003:4003"
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    networks:
+      - internal
+
+  auth-service:
+    image: auth-service:1.0.0
+    container_name: auth-service
+    restart: always
+    ports:
+      - "4004:4004"
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    networks:
+      - internal
+      
+  gateway-service:
+    image: gateway-service:1.0.0
+    container_name: gateway-service
+    restart: always
+    ports:
+      - "4005:4005"
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    networks:
+      - internal
+      
+networks:
+  internal:
+    external: true
