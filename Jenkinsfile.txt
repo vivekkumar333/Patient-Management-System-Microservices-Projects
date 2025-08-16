@@ -1,0 +1,29 @@
+pipeline {
+    agent any
+    
+    environment {
+        DOCKER_IMAGE = "vivek031/billing-service"
+        DOCKER_TAG   = "1.0.0"
+    }
+
+    stages {
+        stage('Build & Tag Docker Image') {
+            steps {
+                script {
+					sh "docker build -t ${DOCKER_IMAGE}:${DOCKER_TAG} ."
+                }
+            }
+        }
+
+        stage('Push to Docker Hub') {
+            steps {
+                script {
+                    withCredentials(credentialsId: 'docker-cred',toolName: 'docker') {
+                        sh "echo Pushing docker image ${DOCKER_IMAGE} into docker hub"
+                        sh "docker push ${DOCKER_IMAGE}:${DOCKER_TAG}"
+                    }
+                }
+            }
+        }
+    }
+}
