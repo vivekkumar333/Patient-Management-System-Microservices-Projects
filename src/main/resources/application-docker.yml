@@ -11,8 +11,8 @@ spring:
   datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://postgres-database:5432/pms_database
-    username: dockerdbuser
-    password: newDockerUser@959
+    username:
+    password:
 
 # === hikariCP configuration for Connection Pooling ===
     hikari:
@@ -44,5 +44,5 @@ spring:
     bootstrap-servers: kafka:9092
 
 jwt:
-  secret: mmzw295dtA4Xn5a6lZtlEPibE66gkAi6fvMb7R1IR3pT2MfeF5YsNXT66VhdG1REjP7yNf3kB7eFbqm7HLSChw==
+  secret:
   expirationMillis: 86400000
