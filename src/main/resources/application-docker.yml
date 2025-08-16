@@ -1,0 +1,48 @@
+# application name and Port
+server:
+  port: 4004
+
+spring:
+  application:
+    name: cps-auth-service
+
+
+# Postgres-database configuration
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://postgres-database:5432/pms_database
+    username: dockerdbuser
+    password: newDockerUser@959
+
+# === hikariCP configuration for Connection Pooling ===
+    hikari:
+      minimum-idle: 5               # Minimum number of idle connections HikariCP will maintain in the pool
+      maximum-pool-size: 20         # Maximum number of total connections in the pool (active + idle)
+      idle-timeout: 600000          # (optional) 10 min   # How long a connection can stay idle before being removed if above minimum-idle
+      max-lifetime: 1800000         # (optional) 30 min   # Lifetime of a connection before being closed and replaced to avoid stale connections
+      connection-timeout: 30000     # (optional) 30 sec   # How long to wait for a connection before throwing an exception
+
+# Specify the SQL initialization mode and custom data.sql location
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:sql/schema-dev.sql
+
+# Hibernate DDL auto (create, update, validate, none)
+  jpa:
+    hibernate:
+      ddl-auto: none
+
+# Show SQL in logs (optional)
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+#Kafka broker address
+  kafka:
+    bootstrap-servers: kafka:9092
+
+jwt:
+  secret: mmzw295dtA4Xn5a6lZtlEPibE66gkAi6fvMb7R1IR3pT2MfeF5YsNXT66VhdG1REjP7yNf3kB7eFbqm7HLSChw==
+  expirationMillis: 86400000
