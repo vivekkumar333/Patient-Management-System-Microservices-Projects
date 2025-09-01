@@ -7,17 +7,17 @@ pipeline {
     }
 
     stages {
-        stage('Pull Docker Images') {
-            steps {
-                script {
-                    sh "docker pull ${DOCKER_USER}/gateway-service:${DOCKER_IMAGES_TAG}"
-                    sh "docker pull ${DOCKER_USER}/auth-service:${DOCKER_IMAGES_TAG}"
-                    sh "docker pull ${DOCKER_USER}/patient-service:${DOCKER_IMAGES_TAG}"
-                    sh "docker pull ${DOCKER_USER}/billing-service:${DOCKER_IMAGES_TAG}"
-                    sh "docker pull ${DOCKER_USER}/notification-service:${DOCKER_IMAGES_TAG}"
-                }
-            }
-        }
+        //stage('Pull Docker Images') {
+        //    steps {
+        //        script {
+        //            sh "docker pull ${DOCKER_USER}/gateway-service:${DOCKER_IMAGES_TAG}"
+        //            sh "docker pull ${DOCKER_USER}/auth-service:${DOCKER_IMAGES_TAG}"
+        //            sh "docker pull ${DOCKER_USER}/patient-service:${DOCKER_IMAGES_TAG}"
+        //            sh "docker pull ${DOCKER_USER}/billing-service:${DOCKER_IMAGES_TAG}"
+        //            sh "docker pull ${DOCKER_USER}/notification-service:${DOCKER_IMAGES_TAG}"
+        //        }
+        //    }
+        //}
 
         stage('Deploy with Docker Compose') {
             steps {

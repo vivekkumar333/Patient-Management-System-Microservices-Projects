@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   patient-service:
-    image: patient-service:1.0.0
+    image: vivek031/patient-service:1.0.0
     container_name: patient-service
     restart: always
     ports:
@@ -13,7 +13,7 @@ services:
       - internal
 
   billing-service:
-    image: billing-service:1.0.0
+    image: vivek031/billing-service:1.0.0
     container_name: billing-service
     restart: always
     ports:
@@ -24,7 +24,7 @@ services:
       - internal
 
   notification-service:
-    image: notification-service:1.0.0
+    image: vivek031/notification-service:1.0.0
     container_name: notification-service
     restart: always
     ports:
@@ -35,7 +35,7 @@ services:
       - internal
 
   auth-service:
-    image: auth-service:1.0.0
+    image: vivek031/auth-service:1.0.0
     container_name: auth-service
     restart: always
     ports:
@@ -46,7 +46,7 @@ services:
       - internal
       
   gateway-service:
-    image: gateway-service:1.0.0
+    image: vivek031/gateway-service:1.0.0
     container_name: gateway-service
     restart: always
     ports:
