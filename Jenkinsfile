@@ -23,7 +23,6 @@ pipeline {
             steps {
                 script {
                     sh 'docker-compose -f docker-compose-pms.yml up -d'
-					sleep 60
                 }
             }
         }
